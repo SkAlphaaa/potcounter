@@ -1,4 +1,4 @@
-package net.uku3lig.totemcounter.mixin;
+package com.skalpha.potioncounter.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.player.Player;
-import net.uku3lig.totemcounter.TotemCounter;
+import com.skalpha.potioncounter.PotionCounter;
 import net.uku3lig.ukulib.utils.Ukutils;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -29,8 +29,8 @@ public class MixinTextDisplayRenderer {
             for (Player player : world.players()) {
                 int index = stringText.indexOf(player.getScoreboardName());
                 if (!isSurrounded(stringText, index, player.getScoreboardName().length())) {
-                    if (!player.isAlive()) TotemCounter.getPops().remove(player.getUUID());
-                    return TotemCounter.showPopsInText(player, text).getVisualOrderText();
+                    if (!player.isAlive()) PotionCounter.getPops().remove(player.getUUID());
+                    return PotionCounter.showPotsInText(player, text).getVisualOrderText();
                 }
             }
         }

@@ -1,4 +1,4 @@
-package net.uku3lig.totemcounter.mixin;
+package com.skalpha.potioncounter.mixin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -7,8 +7,8 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.uku3lig.totemcounter.TotemCounter;
-import net.uku3lig.totemcounter.config.TotemCounterConfig;
+import com.skalpha.potioncounter.PotionCounter;
+import com.skalpha.potioncounter.config.PotionCounterConfig;
 import net.uku3lig.ukulib.utils.Ukutils;
 import org.joml.Vector2ic;
 import org.spongepowered.asm.mixin.Final;
@@ -27,17 +27,17 @@ public class MixinGui {
     @Inject(method = "renderPlayerHealth", at = @At("RETURN"))
     private void renderCounter(GuiGraphics graphics, CallbackInfo ci) {
         if (minecraft.player == null) return;
-        if (!TotemCounterConfig.get().isDisplayEnabled()) return;
+        if (!PotionCounterConfig.get().isDisplayEnabled()) return;
         Font textRenderer = minecraft.font;
 
-        int count = TotemCounter.getCount(minecraft.player);
+        int count = PotionCounter.getCount(minecraft.player);
         if (count == 0) return;
 
         MutableComponent text = Component.literal(String.valueOf(count));
-        if (TotemCounterConfig.get().isShowPopCounter()) text = Component.literal("-").append(text);
+        if (PotionCounterConfig.get().isShowPotCounter()) text = Component.literal("-").append(text);
 
-        int x = TotemCounterConfig.get().getX();
-        int y = TotemCounterConfig.get().getY();
+        int x = PotionCounterConfig.get().getX();
+        int y = PotionCounterConfig.get().getY();
 
         if (x == -1 || y == -1) {
             x = graphics.guiWidth() / 2 - 8;
@@ -48,13 +48,13 @@ public class MixinGui {
         Vector2ic coords = Ukutils.getTextCoords(text, graphics.guiWidth(), textRenderer, x, y);
 
         graphics.pose().pushMatrix();
-        if (TotemCounterConfig.get().isUseDefaultTotem()) {
-            graphics.blit(RenderPipelines.GUI_TEXTURED, TotemCounter.DEFAULT_TOTEM, x, y, 0, 0, 16, 16, 16, 16);
+        if (PotionCounterConfig.get().isUseDefaultPotion()) {
+            graphics.blit(RenderPipelines.GUI_TEXTURED, PotionCounter.DEFAULT_POTION, x, y, 0, 0, 16, 16, 16, 16);
         } else {
-            graphics.renderItem(TotemCounter.TOTEM, x, y);
+            graphics.renderItem(PotionCounter.POTION, x, y);
         }
 
-        graphics.drawString(textRenderer, text, coords.x(), coords.y(), TotemCounter.getColor(count));
+        graphics.drawString(textRenderer, text, coords.x(), coords.y(), PotionCounter.getColor(count));
         graphics.pose().popMatrix();
     }
 }

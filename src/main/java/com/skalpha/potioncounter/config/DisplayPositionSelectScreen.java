@@ -1,19 +1,19 @@
-package net.uku3lig.totemcounter.config;
+package com.skalpha.potioncounter.config;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.uku3lig.totemcounter.TotemCounter;
+import com.skalpha.potioncounter.PotionCounter;
 import net.uku3lig.ukulib.config.screen.PositionSelectScreen;
 import net.uku3lig.ukulib.utils.Ukutils;
 import org.joml.Vector2ic;
 
 public class DisplayPositionSelectScreen extends PositionSelectScreen {
     private int ticksElapsed = 0;
-
-    protected DisplayPositionSelectScreen(Screen parent, TotemCounterConfig config) {
-        super("Position Select", parent, config.getX(), config.getY(), TotemCounter.getManager(), (x, y) -> {
+    // Uh i dont think  i should touch this
+    protected DisplayPositionSelectScreen(Screen parent, PotionCounterConfig config) {
+        super("Position Select", parent, config.getX(), config.getY(), PotionCounter.getManager(), (x, y) -> {
             config.setX(x);
             config.setY(y);
         });
@@ -28,14 +28,14 @@ public class DisplayPositionSelectScreen extends PositionSelectScreen {
     @Override
     protected void draw(GuiGraphics graphics, int mouseX, int mouseY, float delta, int x, int y) {
         graphics.pose().pushMatrix();
-        if (TotemCounter.getManager().getConfig().isUseDefaultTotem()) {
-            graphics.blit(RenderPipelines.GUI_TEXTURED, TotemCounter.DEFAULT_TOTEM, x, y, 0, 0, 16, 16, 16, 16);
+        if (PotionCounter.getManager().getConfig().isUseDefaultPotion()) {
+            graphics.blit(RenderPipelines.GUI_TEXTURED, PotionCounter.DEFAULT_POTION, x, y, 0, 0, 32, 32, 16, 16);
         } else {
-            graphics.renderItem(TotemCounter.TOTEM, x, y);
+            graphics.renderItem(PotionCounter.POTION, x, y);
         }
 
         final Component exampleText = Component.nullToEmpty(String.valueOf(this.ticksElapsed / 4));
-        final int color = TotemCounter.getTotemColor(this.ticksElapsed / 10);
+        final int color = PotionCounter.getPotionColor(this.ticksElapsed / 10);
         Vector2ic coords = Ukutils.getTextCoords(exampleText, this.width, font, x, y);
 
         graphics.drawString(this.font, exampleText, coords.x(), coords.y(), color);

@@ -1,13 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.uku3lig.totemcounter.mixin",
+  "package": "com.skalpha.potioncounter.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
     "MixinChatComponent",
     "MixinClientPacketListener",
     "MixinExperienceBarRenderer",
-    "MixinGameRenderer",
     "MixinGui",
     "MixinPlayerTabOverlay",
     "MixinTextDisplayRenderer"

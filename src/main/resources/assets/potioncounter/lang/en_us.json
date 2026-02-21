@@ -1,0 +1,21 @@
+{
+  "potioncounter.config": "PotionCounter Config",
+  "potioncounter.config.pot": "Pots Counter Config",
+  "potioncounter.config.display": "Potion Display Config",
+  "potioncounter.config.enabled": "Enabled",
+  "potioncounter.config.colors": "Colors",
+  "potioncounter.config.tab": "Show In Player List",
+  "potioncounter.config.pot.separator": "Separator",
+  "potioncounter.config.display.position": "Position",
+  "potioncounter.config.display.defaultPotion": "Default Potion Icon",
+  "potioncounter.config.display.coloredXpBar": "Colored XP Bar",
+  "potioncounter.config.display.alwaysShowBar": "Always Show Colored Bar",
+  "potioncounter.config.display.showPotsCounter": "Show Own Pots",
+  "potioncounter.reset": "Reset Pot Counter",
+  "potioncounter.reset.success": "§bSuccessfully reset the potion counter!",
+  "potioncounter.reset.player": "§bSuccessfully reset counter for %s§b!",
+  "potioncounter.show.noPots": "No one used pots D:",
+  "potioncounter.show.player.noPots": "%s never used a pot. Simply built different.",
+  "potioncounter.show.player": "%s used %s pots(s)!",
+  "key.category.potioncounter.key": "potioncounter"
+}

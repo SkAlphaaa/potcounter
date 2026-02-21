@@ -1,9 +1,9 @@
-[![banner](https://raw.githubusercontent.com/uku3lig/totemcounter/1.19.3/banner.png)  
-![Modrinth Downloads](https://img.shields.io/modrinth/dt/T9R7YTnA?style=for-the-badge)](https://modrinth.com/mod/totemcounter)
+[![banner](https://raw.githubusercontent.com/uku3lig/potioncounter/1.19.3/banner.png)  
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/T9R7YTnA?style=for-the-badge)](https://modrinth.com/mod/potioncounter)
 
-**TotemCounter** is a mod that shows the amount of totem pops for every player above their nametag, and shows how many totems you have in your inventory!
+**potioncounter** is a mod that shows the amount of totem pops for every player above their nametag, and shows how many totems you have in your inventory!
 
-Download at [Modrinth](https://modrinth.com/mod/totemcounter)
+Download at [Modrinth](https://modrinth.com/mod/potioncounter)
 
 *Icon by [Marlow](https://youtube.com/@Marlowww)*
 

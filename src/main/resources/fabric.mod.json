@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "totemcounter",
+  "id": "potioncounter",
   "version": "${version}",
-  "name": "TotemCounter",
-  "description": "counts the amount of skill issues (totem pops)",
+  "name": "PotionCounter",
+  "description": "counts the amount of noobs potting (instant health pots)",
   "authors": [
-    "uku"
+    "skalpha","uku"
   ],
   "contact": {
-    "repo": "https://github.com/uku3lig/totemcounter"
+    "repo": "https://github.com/skalphaa/potioncounter"
   },
   "license": "MIT",
-  "icon": "assets/totemcounter/icon.png",
+  "icon": "assets/potioncounter/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.uku3lig.totemcounter.TotemCounter"
+      "com.skalpha.potioncounter.PotionCounter"
     ],
     "ukulib": [
-      "net.uku3lig.totemcounter.UkulibHook"
+      "com.skalpha.potioncounter.UkulibHook"
     ]
   },
   "mixins": [
-    "totemcounter.mixins.json"
+    "potioncounter.mixins.json"
   ],
   "depends": {
     "minecraft": ">=1.21.11",

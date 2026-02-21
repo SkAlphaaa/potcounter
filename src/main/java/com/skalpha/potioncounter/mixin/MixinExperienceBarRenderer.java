@@ -1,4 +1,4 @@
-package net.uku3lig.totemcounter.mixin;
+package com.skalpha.potioncounter.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -8,8 +8,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.contextualbar.ExperienceBarRenderer;
 import net.minecraft.resources.Identifier;
-import net.uku3lig.totemcounter.TotemCounter;
-import net.uku3lig.totemcounter.config.TotemCounterConfig;
+import com.skalpha.potioncounter.PotionCounter;
+import com.skalpha.potioncounter.config.PotionCounterConfig;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -19,8 +19,8 @@ import org.spongepowered.asm.mixin.injection.At;
 public class MixinExperienceBarRenderer {
     @Unique
     private boolean shouldRenderBar() {
-        int count = TotemCounter.getCount(Minecraft.getInstance().player);
-        return TotemCounterConfig.get().isColoredXpBar() && (count <= 10 || TotemCounterConfig.get().isAlwaysShowBar()) && count != 0;
+        int count = PotionCounter.getCount(Minecraft.getInstance().player);
+        return PotionCounterConfig.get().isColoredXpBar() && (count <= 10 || PotionCounterConfig.get().isAlwaysShowBar()) && count != 0;
     }
 
     @ModifyExpressionValue(method = "renderBackground", at = @At(value = "FIELD", target = "Lnet/minecraft/client/player/LocalPlayer;experienceProgress:F", opcode = Opcodes.GETFIELD))
@@ -31,8 +31,8 @@ public class MixinExperienceBarRenderer {
     @WrapOperation(method = "renderBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIIIIIII)V"))
     public void hideExperienceBar(GuiGraphics graphics, RenderPipeline pipeline, Identifier sprite, int textureWidth, int textureHeight, int u, int v, int x, int y, int width, int height, Operation<Void> original) {
         if (shouldRenderBar()) {
-            int argb = TotemCounter.getColor(TotemCounter.getCount(Minecraft.getInstance().player));
-            graphics.blit(pipeline, TotemCounter.WHITE_BAR, x, y, 0, 0, 182, 5, 182, 5, argb);
+            int argb = PotionCounter.getColor(PotionCounter.getCount(Minecraft.getInstance().player));
+            graphics.blit(pipeline, PotionCounter.WHITE_BAR, x, y, 0, 0, 182, 5, 182, 5, argb);
         } else {
             original.call(graphics, pipeline, sprite, textureWidth, textureHeight, u, v, x, y, width, height);
         }
