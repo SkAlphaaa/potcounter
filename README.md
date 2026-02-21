@@ -1,24 +1,23 @@
-[![banner](https://raw.githubusercontent.com/uku3lig/potioncounter/1.19.3/banner.png)  
-![Modrinth Downloads](https://img.shields.io/modrinth/dt/T9R7YTnA?style=for-the-badge)](https://modrinth.com/mod/potioncounter)
+# Potion Counter
+This is a fork of [TotemCounter](https://modrinth.com/mod/totemcounter), made to track splash instant health potions. It helps you calculate enemy pots in kits like DiaPot and NetheritePot.
 
-**potioncounter** is a mod that shows the amount of totem pops for every player above their nametag, and shows how many totems you have in your inventory!
-
-Download at [Modrinth](https://modrinth.com/mod/potioncounter)
-
-*Icon by [Marlow](https://youtube.com/@Marlowww)*
+**NOTE:** This mod requires [ukulib](https://modrinth.com/mod/ukulib). **Do not use this on Loka or Tierlist fights, or you will be banned.**
 
 ## Features
-* Pop counter in nametag
-* Easy reset via options or keybinding
-* Automatic reset on death or on match end (on supported servers)
-* Show the amount of totems in your inventory
-* Colored XP bar according the totem count
+- Customizable XP bar colors  
+- Potion count and potion icon displayed on the hotbar  
+- Changeable position
+- Clean and organized menu  
 
-## Dependencies
-* [ukulib](https://github.com/uku3lig/ukulib)
+## Planned Features
+- Public plugin to disable mod for servers  
+- Potion icon displayed next to player names  
+- Editable colors for tag and XP bar  
+- Support for more potions  
 
-## Sponsors
+## Example
+![Shows Pots Used Next to Name](https://cdn.modrinth.com/data/cached_images/fad84948e8d0b4ade168925f050e4c2be8551bea.png)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Tutanota_logo.svg" width=300 />
-
-Massive thanks to [Tuta](https://tuta.com) for their support!
+## Supported Versions
+**Currently, this mod only supports version 1.21.11.**  
+Older versions are not supported due its to hard, but there will be support for newer versions.
